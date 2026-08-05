@@ -1,5 +1,5 @@
-class WelcomeController < ActionController::Base
+class WelcomeController < ApplicationController
   def index
-    render html: 'Welcome to the finance tracker!'
+
   end
 end

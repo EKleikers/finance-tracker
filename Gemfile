@@ -68,3 +68,6 @@ group :test do
 end
 
 gem "devise"
+gem 'devise-bootstrap-views', '>= 1.1'
+gem 'iex-ruby-client', '>= 2.1'
+gem "httparty"

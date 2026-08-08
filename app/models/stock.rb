@@ -1,17 +1,36 @@
 class Stock < ApplicationRecord
-
   require "httparty"
 
-  def self.new_lookup(ticker_symbol)
+  def self.company_lookup(ticker_symbol)
     response = HTTParty.get(
-      "https://www.alphavantage.co/query",
+      "https://finnhub.io/api/v1/stock/profile2",
       query: {
-        function: "GLOBAL_QUOTE",
         symbol: ticker_symbol,
-        apikey: Rails.application.credentials.stock_client[:alphavantage_api_key]
+        token: Rails.application.credentials.stock_client[:finnhub_api_key]
       }
     )
 
-    response.parsed_response["Global Quote"]["05. price"]
+    response.parsed_response["name"]
+  end
+
+  def self.new_lookup(ticker_symbol)
+    response = HTTParty.get(
+      "https://finnhub.io/api/v1/quote",
+      query: {
+        symbol: ticker_symbol,
+        token: Rails.application.credentials.stock_client[:finnhub_api_key]
+      }
+    )
+
+    last_price = response.parsed_response["c"]
+    name = company_lookup(ticker_symbol)
+
+    return nil if name.blank?
+
+    new(
+      ticker: ticker_symbol.upcase,
+      name: name,
+      last_price: last_price
+    )
   end
 end

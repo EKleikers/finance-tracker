@@ -1,14 +1,17 @@
-/*.navbar-brand {*/
-/*    font-size: 3rem;*/
-/*}*/
+.search-area {
+    padding-top: 50px;
+}
 
-/*body {*/
-/*    background: yellow;*/
-/*}*/
+.no-right-padding {
+    padding-right: 0 !important;
+}
 
-/*h2 {*/
-/*    color: orange !important;*/
-/*    font-size: 4rem;*/
-/*}*/
+.no-left-padding {
+    padding-left: 0 !important;
+}
 
+.results-block {
+    margin-top: 1rem;
+    display: inline-block;
+}
 

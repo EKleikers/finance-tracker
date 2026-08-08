@@ -125,6 +125,8 @@ GEM
       multipart-post (~> 2.0)
     faraday-net_http (3.4.4)
       net-http (~> 0.5)
+    font-awesome-rails (4.7.0.9)
+      railties (>= 3.2, < 9.0)
     fugit (1.13.0)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
@@ -417,6 +419,7 @@ DEPENDENCIES
   debug
   devise
   devise-bootstrap-views (>= 1.1)
+  font-awesome-rails (>= 4.7.0.9)
   httparty
   iex-ruby-client (>= 2.1)
   importmap-rails
